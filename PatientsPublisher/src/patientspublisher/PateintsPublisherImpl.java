@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class PateintsPublisherImpl implements PatientsPublisher {
 	HashMap<String, Patient> patientArr = new HashMap<String, Patient>();
 	String[] attrArry = { "patientId", "patientName", "guardientName", "gender", "email", "DOB", "phoneNum" };
-	String[] values = new String[7];//inputs values for patient
+	String[] values = new String[7];// inputs values for patient
 
 	@Override
 	public void DisplayAllPatients() {
@@ -45,8 +45,10 @@ public class PateintsPublisherImpl implements PatientsPublisher {
 			 * geting the inputs for the patient
 			 */
 			for (int i = 1; i < attrArry.length; i++) {
-				System.out.println("Enter " + attrArry[i] + ": ");
-				values[i] = sc.nextLine();
+				do {
+					System.out.println("Enter " + attrArry[i] + ": ");
+					values[i] = sc.nextLine();
+				} while (values[i].equalsIgnoreCase(""));
 			}
 			Patient patient = new Patient(values[0], values[1], values[2], values[3], values[4], values[5], values[6]);
 
@@ -125,9 +127,7 @@ public class PateintsPublisherImpl implements PatientsPublisher {
 
 		} else {
 			System.out.println("Patient edit unsuccessful");
-			for (int i = 0; i < values.length; i++) {
-				values[i] = "";
-			}
+			values[0] = "";
 		}
 
 	}
