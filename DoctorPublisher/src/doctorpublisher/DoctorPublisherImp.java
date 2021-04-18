@@ -107,10 +107,10 @@ public class DoctorPublisherImp implements DoctorPublisher {
 	@Override
 	public void displayDoctorList() {
 		for (Doctor doc : doc) {
-			System.out.println(doc.getID());
-			System.out.println(doc.getName());
-			System.out.println(doc.getSpecialization());
-			System.out.println(doc.getHospital());
+			System.out.println("Doctor ID: " + doc.getID());
+			System.out.println("Doctor Name: " + doc.getName());
+			System.out.println("Doctor Specialization: " + doc.getSpecialization());
+			System.out.println("Doctor Hospital: " + doc.getHospital());
 			System.out.println("\n");
 		}
 	}
