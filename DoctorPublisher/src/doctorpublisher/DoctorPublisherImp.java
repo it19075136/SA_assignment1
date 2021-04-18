@@ -43,25 +43,24 @@ public class DoctorPublisherImp implements DoctorPublisher {
 	public void EditDoctor(Doctor doctor) {
 		System.out.println("Do you want to edit a doctor(y/n)?");
 		String input = sc.next();
-
 		while (input.equalsIgnoreCase("y")) {
 			if (doc.contains(doctor)) {
 				System.out.println("Enter what you want to edit?(name-n, specialization-s, hospital-h)");
 				String editIn = sc.next();
-				if (editIn == "n") {
+				if (editIn.equals("n")) {
 					System.out.println("Enter doctor name: ");
 					name = sc.next();
-				} else if (editIn == "s") {
+					doctor.setName(name);
+				} else if (editIn.equals("s")) {
 					System.out.println("Enter doctor specialization: ");
 					spec = sc.next();
-				} else if (editIn == "h") {
-					System.out.println("Enter doctor specialization: ");
-					spec = sc.next();
+					doctor.setSpecialization(spec);
 				} else {
 					System.out.println("Enter doctor hospital: ");
 					hos = sc.next();
+					doctor.setHospital(hos);
 				}
-				doc.set(doc.indexOf(doctor), new Doctor(did, name, spec, hos));
+				doc.set(doc.indexOf(doctor), doctor);
 
 			} else if (doc.size() == 0) {
 				System.out.println("No record added yet!");
@@ -84,7 +83,6 @@ public class DoctorPublisherImp implements DoctorPublisher {
 
 		while (input.equalsIgnoreCase("y")) {
 			if (doc.size() != 0) {
-				int j = 0;
 				for (int i = 0; i < doc.size(); i++) {
 					if (doc.get(i).getID() == did) {
 						String deleteID = doc.get(i).getID();
@@ -92,10 +90,6 @@ public class DoctorPublisherImp implements DoctorPublisher {
 						System.out.println("Doctor :" + deleteID + "deleted successfully");
 						break;
 					}
-					j++;
-				}
-				if (j == 0) {
-					System.out.println("There is no any id equal to your input id!");
 				}
 			} else {
 				System.out.println("No record added yet!");
@@ -127,7 +121,8 @@ public class DoctorPublisherImp implements DoctorPublisher {
 	@Override
 	public Doctor getDoctorById(String did) {
 		for (Doctor doctor : doc) {
-			if (doctor.getID() == did) {
+			if (doctor.getID().equals(did)) {
+				System.out.println(did);
 				return doctor;
 			}
 		}
