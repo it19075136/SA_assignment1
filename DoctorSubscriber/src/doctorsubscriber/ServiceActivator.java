@@ -22,22 +22,18 @@ public class ServiceActivator implements BundleActivator {
 		docPublish.displayDoctorList();
 		System.out.println("Choose edit or delete: (e/d)"); // choose edit or delete options
 		String ans = sc.next();
-		String exit = "no";
-		System.out.println("Enter Doctor ID: ");
+		System.out.println("Enter Doctor ID: ");//Get doctor id to edit or delete
 		Doctor doc = docPublish.getDoctorById(sc.next()); // get doctor by the id
-		System.out.println(doc.getName());
 		if (ans.equalsIgnoreCase("e")) {// doctor edit
 			docPublish.EditDoctor(doc);
-			System.out.println("Do you want exit (y/n)?");
-			exit = sc.next();
-
+			docPublish.displayDoctorList();
+			System.out.println("Doctor edited!");
 		} else if (ans.equalsIgnoreCase("d")) {// doctor delete
 			docPublish.DeleteDoctor(doc.getID());// delete the doctor details according to the id
 			docPublish.displayDoctorList();
 		} else {
 			System.out.println("Undifine Input!!!");
 		}
-
 	}
 
 	public void stop(BundleContext context) throws Exception {
