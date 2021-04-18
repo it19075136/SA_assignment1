@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DoctorPublisher
+Bundle-SymbolicName: DoctorPublisher
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: DoctorPublisher
+Bundle-RequiredExecutionEnvironment: JavaSE-15
+Bundle-Activator: doctorpublisher.ServiceActivator
+Import-Package: org.osgi.framework;version="1.10.0"
+Export-Package: doctorpublisher
