@@ -30,6 +30,7 @@ public class DoctorPublisherImp implements DoctorPublisher {
 			System.out.println("Enter doctor hospital: ");
 			hos = sc.next();
 			doc.add(new Doctor(did, name, spec, hos));
+			
 			System.out.println("Do you want to enter another doctor(y/n)?");
 			input = sc.next();
 		}
@@ -67,7 +68,7 @@ public class DoctorPublisherImp implements DoctorPublisher {
 			} else {
 				System.out.println("No such a doctor in that id!");
 			}
-			System.out.println("Do you want to edit another doctor(y/n)?");
+			System.out.println("Do you want to edit same doctor again(y/n)?");
 			input = sc.next();
 		}
 	}
@@ -95,8 +96,6 @@ public class DoctorPublisherImp implements DoctorPublisher {
 				System.out.println("No record added yet!");
 			}
 
-			System.out.println("Do you want to delete another doctor(y/n)?");
-			input = sc.next();
 		}
 	}
 
