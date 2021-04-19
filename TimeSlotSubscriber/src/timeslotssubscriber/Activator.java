@@ -23,9 +23,9 @@ public class Activator implements BundleActivator {
 		reference2 = bundleContext.getServiceReference(DoctorPublisher.class.getName());
 		TimeSlotsPublisher publish = (TimeSlotsPublisher) bundleContext.getService(reference);
 		DoctorPublisher docPublish = (DoctorPublisher) bundleContext.getService(reference2);
-		docPublish.displayDoctorList();
+		docPublish.displayDoctorList(); //Using doctor publisher service to get available doctors list
 		System.out.print("Enter Doctor Id:");
-		dId = sc.nextLine();
+		dId = sc.nextLine(); // selecting a doctor from the displayed list
 		publish.RegisterTimeSlot(dId); // validate dids from doctorPublisher service
 		dateList = publish.ListAllTimeSlots(dId); // getting all timeslots for the doctor
 		String option = "";		

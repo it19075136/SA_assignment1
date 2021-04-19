@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class TimeSlotsPublisherImp implements TimeSlotsPublisher {
 
 	Scanner sc = new Scanner(System.in);
-	static HashMap<String, ArrayList<String>> timeSlots = new HashMap<String, ArrayList<String>>();
+	static HashMap<String, ArrayList<String>> timeSlots = new HashMap<String, ArrayList<String>>(); // to store timeslots in an arraylist against the doctor id as the key 
 	String day,from,to;
 	static ArrayList<String> dateTime = new ArrayList<String>();
 	
@@ -22,7 +22,7 @@ public class TimeSlotsPublisherImp implements TimeSlotsPublisher {
 		from = sc.next(); // set time from
 		System.out.print("Time to:(HH:MM in 24h)");
 		to = sc.next(); // set time from		
-		if(IsTimeSlotVacant(day, from, to)) {
+		if(IsTimeSlotVacant(day, from, to)) { // checking if the timeslot is already taken
 			dateTime.add(day+" - From "+from+" To "+to);
 		}
 		else
@@ -61,7 +61,7 @@ public class TimeSlotsPublisherImp implements TimeSlotsPublisher {
 					dates.add(day+" - From "+from+" To "+to);
 				else
 					System.out.println("Time slot is already added");
-			timeSlots.replace(id, dates);
+			timeSlots.replace(id, dates); //updating the timeslots arraylist after modifying
 			return true;
 		}
 		else
@@ -72,7 +72,7 @@ public class TimeSlotsPublisherImp implements TimeSlotsPublisher {
 	public boolean RemoveTimeSlot(String id,int index) {
 		ArrayList<String> dates = timeSlots.get(id);
 		if(dates.remove(index) != null) {
-			timeSlots.replace(id, dates);
+			timeSlots.replace(id, dates); //updating the timeslots arraylist after removing one
 			return true;
 		}
 		else
