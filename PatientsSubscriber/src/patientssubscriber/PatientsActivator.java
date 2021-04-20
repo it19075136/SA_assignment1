@@ -35,7 +35,9 @@ public class PatientsActivator implements BundleActivator {
 		/**
 		 * Show all patient details added by the admin
 		 */
+		System.out.println();
 		publisherPatients.DisplayAllPatients();
+		System.out.println();
 		/**
 		 * Patient details editing or deleting
 		 */

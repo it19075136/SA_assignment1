@@ -13,6 +13,7 @@ public class TimeSlotsPublisherImp implements TimeSlotsPublisher {
 	
 	@Override
 	public void RegisterTimeSlot(String id) {
+		dateTime.clear();
 		System.out.println("Do you want to add a timeslot(y/n)?");
 		String check = sc.next();
 		while(check.equalsIgnoreCase("y")) {

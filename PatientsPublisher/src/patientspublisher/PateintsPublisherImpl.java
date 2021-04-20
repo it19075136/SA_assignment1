@@ -74,9 +74,10 @@ public class PateintsPublisherImpl implements PatientsPublisher {
 		 */
 		if (patientArr.containsKey(patientsId)) {
 			patientArr.remove(patientsId);
-			System.out.println("Successful deleted");
+			System.out.println("Successfully deleted");
 		} else {
-			System.out.println("They is not a such a patient");
+			System.out.println("There is no such a patient");
+			System.out.println();
 		}
 
 	}
@@ -124,6 +125,7 @@ public class PateintsPublisherImpl implements PatientsPublisher {
 				System.out.print(values[i] + ",");
 				values[i] = "";
 			}
+			System.out.println();
 
 		} else {
 			System.out.println("Patient edit unsuccessful");
