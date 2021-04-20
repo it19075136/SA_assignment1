@@ -17,8 +17,10 @@ public class AppoPublishImpl implements AppoPublish {
 		for(int i =0; i < array.size(); i++) {
 			System.out.println("id is "+ i +" and value is "+array.get(i));
 		}
-		
+		System.out.println(" ");
 		System.out.println("Enter the id of the timeslot you need to make an appointment");
+		System.out.println(" ");
+
 		 id = sc.nextInt();
 		time = array.get(id);
 		
@@ -28,6 +30,7 @@ public class AppoPublishImpl implements AppoPublish {
 //			}
 			
 			appo.add("Doc ID = "+dId+" Patient ID = "+pId+" and appointement time is = "+time);
+			System.out.println(" ");
 			System.out.println("Appointment Added");
 		//}
 		
@@ -36,6 +39,8 @@ public class AppoPublishImpl implements AppoPublish {
 	@Override
 	public void appoList() {
 		// TODO Auto-generated method stub
+		System.out.println(" ");
+
 		for(int i = 0; i < appo.size(); i++) {
 			System.out.println("Id = "+i+" "+appo.get(i));
 		}
@@ -43,7 +48,7 @@ public class AppoPublishImpl implements AppoPublish {
 	}
 
 	@Override
-	public void editAppo(int id,String [] array,String dId, String pId) {
+	public void editAppo(int id,ArrayList<String> array,String dId, String pId) {
 		// TODO Auto-generated method stub
 //		String isNext = null;
 //		do {
@@ -54,16 +59,21 @@ public class AppoPublishImpl implements AppoPublish {
 			System.out.println("Enter the new doctor ID");
 			//show doctor list here
 			String editDid = sc.next();
+			System.out.println(" ");
 			System.out.println("List of available time slots");
 			
-			
-			for(int i = 0; i < array.length;i++) {
-				System.out.println("id is "+ i +" and timeslot is "+array[i]);
+			System.out.println(" ");
+			for(int i = 0; i < array.size();i++) {
+				System.out.println("id is "+ i +" and timeslot is "+array.get(i));
 			}
+			System.out.println(" ");
+
 			System.out.println("Enter the new time slot");
 
 			String editTime = sc.next();
 			
+			System.out.println(" ");
+
 			appo.set(id, "Doc ID = "+editDid+" appointement time "+editTime);
 			System.out.println("Edited appointment : "+appo.get(id));
 			
