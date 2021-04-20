@@ -15,7 +15,7 @@ public class DoctorPublisherImp implements DoctorPublisher {
 
 	@Override
 	public void DoctorRegister() {
-
+		//Adding doctor to the system
 		System.out.println("Do you want to enter a doctor(y/n)?");
 		String input = sc.next();
 
@@ -42,6 +42,7 @@ public class DoctorPublisherImp implements DoctorPublisher {
 
 	@Override
 	public void EditDoctor(Doctor doctor) {
+		//Editing doctor details according to the editor preference and set the values
 		System.out.println("Do you want to edit a doctor(y/n)?");
 		String input = sc.next();
 		while (input.equalsIgnoreCase("y")) {
@@ -79,24 +80,20 @@ public class DoctorPublisherImp implements DoctorPublisher {
 
 	@Override
 	public void DeleteDoctor(String did) {
-		System.out.println("Do you want to delete a doctor(y/n)?");
-		String input = sc.next();
+		//delete doctor details and remove the doctor from the array list
 
-		while (input.equalsIgnoreCase("y")) {
 			if (doc.size() != 0) {
 				for (int i = 0; i < doc.size(); i++) {
 					if (doc.get(i).getID() == did) {
 						String deleteID = doc.get(i).getID();
 						doc.remove(i);
-						System.out.println("Doctor :" + deleteID + "deleted successfully");
-						break;
+						System.out.println("Doctor :" + deleteID + " deleted successfully");
 					}
 				}
 			} else {
 				System.out.println("No record added yet!");
 			}
 
-		}
 	}
 
 	/**
@@ -105,6 +102,7 @@ public class DoctorPublisherImp implements DoctorPublisher {
 
 	@Override
 	public void displayDoctorList() {
+		//display doctor details to the user
 		for (Doctor doc : doc) {
 			System.out.println("Doctor ID: " + doc.getID());
 			System.out.println("Doctor Name: " + doc.getName());
@@ -119,6 +117,7 @@ public class DoctorPublisherImp implements DoctorPublisher {
 	 */
 	@Override
 	public Doctor getDoctorById(String did) {
+		//get the specific doctor according to his doctor id
 		for (Doctor doctor : doc) {
 			if (doctor.getID().equals(did)) {
 				System.out.println(did);

@@ -20,19 +20,32 @@ public class ServiceActivator implements BundleActivator {
 		DoctorPublisher docPublish = (DoctorPublisher) context.getService(doctorReference);
 		docPublish.DoctorRegister();
 		docPublish.displayDoctorList();
-		System.out.println("Choose edit or delete: (e/d)"); // choose edit or delete options
-		String ans = sc.next();
-		System.out.println("Enter Doctor ID: ");//Get doctor id to edit or delete
-		Doctor doc = docPublish.getDoctorById(sc.next()); // get doctor by the id
-		if (ans.equalsIgnoreCase("e")) {// doctor edit
-			docPublish.EditDoctor(doc);
-			docPublish.displayDoctorList();
-			System.out.println("Doctor edited!");
-		} else if (ans.equalsIgnoreCase("d")) {// doctor delete
-			docPublish.DeleteDoctor(doc.getID());// delete the doctor details according to the id
-			docPublish.displayDoctorList();
+
+		System.out.println("Do you want to edit or delete doctor details (y/n)?");
+		String in = sc.next();
+
+		if (in.equalsIgnoreCase("y")) {	
+			String exit = "c";
+			while (exit.equalsIgnoreCase("c")) {
+				System.out.println("Choose edit or delete: (e/d)"); // choose edit or delete options
+				String ans = sc.next();
+				System.out.println("Enter Doctor ID: ");// Get doctor id to edit or delete
+				Doctor doc = docPublish.getDoctorById(sc.next()); // get doctor by the id
+				if (ans.equalsIgnoreCase("e")) {// doctor edit
+					docPublish.EditDoctor(doc);
+					docPublish.displayDoctorList();
+					System.out.println("Doctor edited!");
+				} else if (ans.equalsIgnoreCase("d")) {// doctor delete
+					docPublish.DeleteDoctor(doc.getID());// delete the doctor details according to the id
+					docPublish.displayDoctorList();
+				} else {
+					System.out.println("Undifine Input!!!");
+				}
+				System.out.println("Do you want to exit or continue (e/c) ?");
+				exit = sc.next();
+			}
 		} else {
-			System.out.println("Undifine Input!!!");
+			System.out.println("Have a nice Day!!!");
 		}
 	}
 
