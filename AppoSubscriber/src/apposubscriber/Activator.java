@@ -43,6 +43,10 @@ public class Activator implements BundleActivator {
 
 		
 		String[] cars = {"first","second","third","fourth","fifth"};
+//		ArrayList<String> timeslots = timePublish.ListAllTimeSlots(dID);
+
+		
+
 		
 		do {
 			System.out.println("Patient List");
@@ -58,12 +62,13 @@ public class Activator implements BundleActivator {
 			
 			System.out.println("TimeSlot List for the doctor id :"+dID);
 			ArrayList<String> timeslots = timePublish.ListAllTimeSlots(dID);
-			for(String item: timeslots) {
-				System.out.println(item);
-			}
+
+		for(String item: timeslots) {
+			System.out.println(item);
+		}
 
 		
-			appoPublish.appoBooking(timeslots, dID, pID);
+		appoPublish.appoBooking(timeslots, dID, pID);
 			
 			System.out.println("Would you like to make another appointemnt (y/n)");
 			isNext = sc.next();
@@ -78,7 +83,8 @@ public class Activator implements BundleActivator {
 			if(isEditBefore.equalsIgnoreCase("y")) {
 				System.out.println("Enter the id of the appointment to edit :");
 				editIndex = sc.nextInt();
-				appoPublish.editAppo(editIndex, cars, dID, pID);
+				ArrayList<String> timeslots = timePublish.ListAllTimeSlots(dID);
+				appoPublish.editAppo(editIndex, timeslots, dID, pID);
 				System.out.println("Would you like to edit another appointemnt (y/n)");
 				isEditNext = sc.next();
 			}else {
